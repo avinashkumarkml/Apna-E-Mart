@@ -1,0 +1,153 @@
+.main {
+  gap: 30px;
+  width: 95%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  font-family: Muli, sans-serif;
+}
+
+#cards {
+  width: 70%;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.credit-card {
+  color: black;
+  text-decoration: none;
+}
+
+.choose-method {
+  font-size: 13px;
+  padding: 10px 0px;
+  font-weight: bold;
+  font-weight: 700px;
+  color: rgba(0, 0, 0, 0.87);
+  background-color: rgb(220, 218, 218);
+}
+
+.main-card {
+  width: 100%;
+  display: flex;
+  height: 450px;
+  flex-direction: row;
+}
+
+.child-card {
+  width: 25%;
+  font-size: 13px;
+  font-weight: 400px;
+  text-align: center;
+  background-color: #fbfbfb;
+}
+
+.card-option {
+  display: block;
+  padding: 15px 0px;
+  border-bottom: 1px solid lightgrey;
+}
+
+.child-card-2 {
+  width: 70%;
+}
+.second {
+  width: 30%;
+}
+.secondry-card {
+  width: 100%;
+  height: 20%;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.second-child {
+  padding: 15px;
+  font-size: 13px;
+  font-weight: 400px;
+  text-align: center;
+}
+
+.credit-card-logo {
+  width: 600px;
+  display: flex;
+  margin: 25px 60px;
+}
+
+.form-check-input {
+  margin: 5px 5px 5px 40px;
+}
+
+.card-header {
+  width: 350px;
+  height: 245px;
+  padding-top: 10px;
+  margin-left: 100px;
+  border-radius: 10px;
+  background-color: rgb(235, 235, 235);
+}
+
+.credit-card-inp {
+  width: 270px;
+  height: 35px;
+  border: none;
+  border-radius: 4px;
+  padding-left: 15px;
+  margin-bottom: 10px;
+}
+
+.cardnum {
+  font-size: 13px;
+  font-weight: 500px;
+}
+
+.month,
+.year {
+  width: 50px;
+  height: 40px;
+  border: none;
+  border-radius: 4px;
+  margin-right: 10px;
+  padding-left: 15px;
+}
+
+.cvv {
+  width: 70px;
+  height: 40px;
+  border: none;
+  margin-left: 30px;
+  border-radius: 4px;
+  padding-left: 15px;
+}
+
+.count-down {
+  margin: 100px 0px 0px 140px;
+}
+
+.make-payment {
+  border: none;
+  width: 150px;
+  height: 35px;
+  font-size: 13px;
+  font-weight: 400px;
+  border-radius: 4px;
+  background-color: #fed250;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.credit-card-img {
+  width: 200px;
+  height: 40px;
+}
+.main_div_pay {
+  width: 70%;
+  padding: 15px;
+  margin-left: 5%;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+.enter_card {
+  color: gray;
+  font-size: 20px;
+  margin-top: 20px;
+  font-family: cursive;
+}
