@@ -30,7 +30,7 @@ export default function Register() {
     console.log(userDetails);
 
     axios
-      .post("https://apna-mart-data.herokuapp.com/register", userDetails)
+      .post("https://apna-e-mart-backend.onrender.com/register", userDetails)
       .then((res) => {
         console.log(res.data);
         alert("Register Successful");

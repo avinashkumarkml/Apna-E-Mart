@@ -9,7 +9,7 @@ export const Checkout = () => {
   const  isLogin  = useSelector((store) => store.isLogin);
   const showData = () => {
     let sum = 0;
-    axios.get("https://apna-mart-data.herokuapp.com/cart").then((res) => {
+    axios.get("https://apna-e-mart-backend.onrender.com/cart").then((res) => {
       if (res.data.length > 0) {
         for (let i = 0; i < res.data.length; i++) {
           let x = res.data[i].price.split(",").join("");
