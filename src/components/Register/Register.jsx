@@ -30,7 +30,7 @@ export default function Register() {
     console.log(userDetails);
 
     axios
-      .post("https://apna-e-mart-backend.onrender.com/register", userDetails)
+      .post("https://web-production-99af.up.railway.app/register", userDetails)
       .then((res) => {
         console.log(res.data);
         alert("Register Successful");

@@ -28,7 +28,7 @@ export const ResponsiveAppBar = () => {
   const [cartData, setCartData] = React.useState(0);
   const { cart } = useSelector((store) => store.cart);
   const getCartData = () => {
-    axios.get("https://apna-e-mart-backend.onrender.com/cart").then((res) => {
+    axios.get("https://web-production-99af.up.railway.app/cart").then((res) => {
       setCartData(res.data.length);
     });
   };

@@ -12,7 +12,7 @@ export const Electronics = () => {
     (store) => store.electronics.filterElectronics
   );
   const renderCloths = () => {
-    axios.get("https://apna-e-mart-backend.onrender.com/electronics").then((res) => {
+    axios.get("https://web-production-99af.up.railway.app/electronics").then((res) => {
       dispatch(getElectronics(res.data));
     });
   };

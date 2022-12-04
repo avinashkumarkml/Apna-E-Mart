@@ -21,22 +21,22 @@ export const HomePage = () => {
 
   const navigate = useNavigate();
   const renderCloths = () => {
-    axios.get("https://apna-e-mart-backend.onrender.com/cloths").then((res) => {
+    axios.get("https://web-production-99af.up.railway.app/cloths").then((res) => {
       dispatch(getCloths(res.data.slice(0, 5)));
     });
   };
   const renderShoes = () => {
-    axios.get("https://apna-e-mart-backend.onrender.com/shoes").then((res) => {
+    axios.get("https://web-production-99af.up.railway.app/shoes").then((res) => {
       dispatch(getShoes(res.data.slice(0, 5)));
     });
   };
   const renderElectronics = () => {
-    axios.get("https://apna-e-mart-backend.onrender.com/electronics").then((res) => {
+    axios.get("https://web-production-99af.up.railway.app/electronics").then((res) => {
       dispatch(getElectronics(res.data.slice(0, 5)));
     });
   };
   const renderBooks = () => {
-    axios.get("https://apna-e-mart-backend.onrender.com/books").then((res) => {
+    axios.get("https://web-production-99af.up.railway.app/books").then((res) => {
       dispatch(getBooks(res.data.slice(0, 5)));
     });
   };

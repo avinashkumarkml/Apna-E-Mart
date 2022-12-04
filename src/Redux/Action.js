@@ -57,7 +57,7 @@ export const addToCart = (payload) => ({
 });
 
 export const cartData = () => (dispatch) => {
-  axios.get("https://apna-e-mart-backend.onrender.com/cart").then((res) => {
+  axios.get("https://web-production-99af.up.railway.app/cart").then((res) => {
     dispatch(addToCart(res.data));
   });
 };

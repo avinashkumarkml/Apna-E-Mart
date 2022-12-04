@@ -11,7 +11,7 @@ export const Shoes = () => {
   const filterShoe = useSelector((store) => store.shoes.filterShoes);
 
   const renderCloths = () => {
-    axios.get("https://apna-e-mart-backend.onrender.com/shoes").then((res) => {
+    axios.get("https://web-production-99af.up.railway.app/shoes").then((res) => {
       dispatch(getShoes(res.data));
     });
   };

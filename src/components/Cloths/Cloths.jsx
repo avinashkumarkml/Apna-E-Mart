@@ -11,7 +11,7 @@ export const Cloths = () => {
 
   const navigate = useNavigate();
   const renderCloths = () => {
-    axios.get("https://apna-e-mart-backend.onrender.com/cloths").then((res) => {
+    axios.get("https://web-production-99af.up.railway.app/cloths").then((res) => {
       dispatch(getCloths(res.data));
     });
   };

@@ -13,7 +13,7 @@ export const ProductDetails = () => {
   const { id, category } = useParams();
   const getProduct = () => {
     axios
-      .get(`https://apna-e-mart-backend.onrender.com/${category}/${id}`)
+      .get(`https://web-production-99af.up.railway.app/${category}/${id}`)
       .then((res) => {
         setProd(res.data);
         dispatch(getData(res.data));
@@ -23,7 +23,7 @@ export const ProductDetails = () => {
     getProduct();
   }, []);
   const handleCart = () => {
-    axios.post(`https://apna-e-mart-backend.onrender.com/cart`, prod).then(() => {
+    axios.post(`https://web-production-99af.up.railway.app/`, prod).then(() => {
       alert("Product add successfully");
     });
     dispatch(cartData());
