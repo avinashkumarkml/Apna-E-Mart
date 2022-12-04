@@ -21,12 +21,12 @@ export const HomePage = () => {
 
   const navigate = useNavigate();
   const renderCloths = () => {
-    axios.get("https://web-production-99af.up.railway.app/cloths").then((res) => {
+    axios.get("https://web-production-99af.up.railway.app/Cloth").then((res) => {
       dispatch(getCloths(res.data.slice(0, 5)));
     });
   };
   const renderShoes = () => {
-    axios.get("https://web-production-99af.up.railway.app/shoes").then((res) => {
+    axios.get("https://web-production-99af.up.railway.app/Appliances").then((res) => {
       dispatch(getShoes(res.data.slice(0, 5)));
     });
   };
