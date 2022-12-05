@@ -1,13 +1,13 @@
-# E-COMMERCE WEB APPLICATION  &nbsp;   &nbsp;   &nbsp;   &nbsp;   &nbsp; &nbsp;   &nbsp;   &nbsp;   &nbsp;   &nbsp; &nbsp;   &nbsp;   &nbsp;   &nbsp;   &nbsp; &nbsp;   &nbsp;   &nbsp;   &nbsp;   &nbsp;  &nbsp;   &nbsp;    &nbsp;   &nbsp;   &nbsp;   &nbsp;   
+<h1 align="center"> Apna-E-Mart <h1/>  
 
-<h3>The goal of this project was to create a responsive E-commerce web application used for a user where the customer can buy a product.</h3>
+<h3>It is a solo Project and In this repo I try to build a E-Commerce website with React stack technologies. For Practice purpose.</h3>
 
 <div style='page-break-after: always'></div>
 
 <h3 align="center" > Want to see live preview >><h3>
 <p align="center">
 <br />
-<a target="blank" href="https://e-commerce-two-psi.vercel.app/">Deployed Link</a>
+<a target="blank" href="https://apna-e-mart-avinashkumarkml.vercel.app/">Deployed Link</a>
 </p>
 
 <br />
@@ -17,7 +17,7 @@
 Clone the project
 
 ```
-git clone https://github.com/avinashkumarkml/E-Commerce-Front-End.git
+git clone https://github.com/avinashkumarkml/Apna-E-Mart.git
 ```
 
 Install npm packages
@@ -47,10 +47,9 @@ go to http://localhost:3000
 - JavaScript
 - ReactJs
 - Redux
-- Chakra UI
-- JSON
+- MUI
 
-All the data got stored in and called from <b>JSON Server</b>.
+All the data got stored in and called from <b>Railway App</b>.
 
 <div style='page-break-after: always'></div>
 
@@ -82,12 +81,12 @@ All the data got stored in and called from <b>JSON Server</b>.
 <p>Sign In page</p>
 <img src="https://miro.medium.com/max/1100/1*qIOFdM6ec61xDPEDk7hakQ.webp"/>
   
-## Please do check out our E-COMMERCE WEB APPLICATION !
+## Please do check out our Apna-E-Mart !
 
-<h2>Contact</h2>
+ <h2>Contact</h2>
 
-If you want to contact me, you can reach me through below handle.
+If you want to contact me, you can reach me through below handles.
 
-[![linkedin](https://img.shields.io/badge/Avinash-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)]([https://www.linkedin.com/in/manish-reddy-76063a222/](https://www.linkedin.com/in/avinashdeveloper/))
+[![linkedin](https://img.shields.io/badge/Avinash-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/avinashdeveloper/)
 
 # Thank You :sparkling_heart:
