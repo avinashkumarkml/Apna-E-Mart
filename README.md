@@ -55,31 +55,31 @@ All the data got stored in and called from <b>Railway App</b>.
 
 ### <u>Functionalities</u>
 
-- Authentication
-- Login Confirmation
-- Search Functionality
-- Sorting
+- Sort and filter functionality.
+- Sign-in/Sign-up.
+- User authentication.
+- Add to cart and dynamic checkout page.
 - Payment Integration
 - Order Confirmation
   
   ## Some Snapshots
 <p>Landing page</p>
-<img src="https://miro.medium.com/max/1100/1*r8_n9TLtommCfwfzy8LlMQ.webp"/>
+<img src="https://miro.medium.com/max/1100/1*aZVr-cnkql_TFRsAPWqpqw.webp"/>
 
 <p>Product page</p>
-<img src="https://miro.medium.com/max/1100/1*rBq2iiLPCv5o3b5QHUoAbg.webp"/>
-
-<p>Product Description page</p>
-<img src="https://miro.medium.com/max/1100/1*3FaTA6kGH8wlE08f8_BeVQ.webp"/>
+<img src="https://miro.medium.com/max/1100/1*XG7gKJMkkGVehBm3_C8ZXw.webp"/>
 
 <p>The cart page</p>
-<img src="https://miro.medium.com/max/1100/1*HX7btt9ieMIpweVMOVZPWw.webp"/>
+<img src="https://miro.medium.com/max/1100/1*y8DNYFJTOFvl_CAUGWj0uQ.webp"/>
 
 <p>The Payment Gateway page</p>
 <img src="https://miro.medium.com/max/1100/1*gNrATdYuV6xUVJZfXM7V_A.webp"/>
   
+<p>Sign UP page</p>
+<img src="https://miro.medium.com/max/1100/1*oab-B0KPdYJ_BBsZCchfiA.webp"/>
+
 <p>Sign In page</p>
-<img src="https://miro.medium.com/max/1100/1*qIOFdM6ec61xDPEDk7hakQ.webp"/>
+<img src="https://miro.medium.com/max/1100/1*_nIVQlgAi_gU-pBk2PVcYA.webp"/>
   
 ## Please do check out our Apna-E-Mart !
 
