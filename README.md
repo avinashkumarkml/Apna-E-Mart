@@ -71,9 +71,6 @@ All the data got stored in and called from <b>Railway App</b>.
 
 <p>The cart page</p>
 <img src="https://miro.medium.com/max/1100/1*y8DNYFJTOFvl_CAUGWj0uQ.webp"/>
-
-<p>The Payment Gateway page</p>
-<img src="https://miro.medium.com/max/1100/1*gNrATdYuV6xUVJZfXM7V_A.webp"/>
   
 <p>Sign UP page</p>
 <img src="https://miro.medium.com/max/1100/1*oab-B0KPdYJ_BBsZCchfiA.webp"/>
