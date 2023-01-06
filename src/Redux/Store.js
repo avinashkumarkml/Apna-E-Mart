@@ -1,18 +1,20 @@
-import { applyMiddleware, combineReducers, legacy_createStore } from "redux";
+import { applyMiddleware, combineReducers } from "redux";
+import { Reducer } from "./reducer";
+import { legacy_createStore as createStore } from "redux";
 import thunk from "redux-thunk";
-import { loginReducer } from "./Login/LoginReducer";
-import { Reducer } from "./Reducer";
+import { loginReducer } from "./login/loginReducer";
 
-const reducer = combineReducers({
-  cloths: Reducer,
-  electronics: Reducer,
-  shoes: Reducer,
-  books: Reducer,
-  data: Reducer,
-  cart: Reducer,
-  isLogin:loginReducer
-});
+const reducer =combineReducers({
+    cloth :Reducer,
+    electronics :Reducer,
+    appliances :Reducer,
+    books:Reducer,
+    cart:Reducer,
+    isLogin:loginReducer
+})
 
-export const store = legacy_createStore(reducer, applyMiddleware(thunk));
-
+export const store =createStore(
+    reducer,
+    applyMiddleware(thunk)
+)
 

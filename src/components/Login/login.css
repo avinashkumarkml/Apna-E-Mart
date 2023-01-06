@@ -1,0 +1,123 @@
+.login{
+    font-family: Muli, sans-serif;
+}
+
+.head{
+    font-size: 26px;
+    font-weight: 600px;
+    margin-bottom:20px;
+    font-weight:bold
+}
+
+.box{
+    width: 370px;
+    /* height: 500px; */
+    margin: auto;
+    border-radius: 5px;
+    box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+    padding-bottom: 27px;
+}
+
+.flex{
+    display: flex;
+    margin: auto;
+    border-bottom: 1px solid rgb(209, 206, 206);
+    padding-top: 20px;
+    font-size: 15px;
+    font-weight: 700px;
+}
+
+.flex>p:first-child{
+    width:50%;
+    height:65%;
+    color: black;
+    font-weight: bolder;
+    border-bottom: 5px solid #fed250;
+}
+
+.flex>p:last-child{
+    width:50%;
+    color: grey;
+}
+
+.ph{
+    width: 135px;
+    
+    font-weight: 600px ;
+    font-size: 12px;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+    margin-left: 3px;
+}
+
+.phone>input:first-child{
+    width:22%;
+    height:40px;
+    border: none;
+    background-color: #f5f5f5;
+    border-radius:4px;
+    margin-left: 10px;
+    padding-left: 15px;
+}
+
+.phone>input:last-child{
+    margin-left: 10px;
+    width:50%;
+    height:40px;
+    border: none;
+    background-color: #f5f5f5;
+    border-radius:4px;
+    margin-right: 10px;
+}
+
+.inp{
+    margin-left: 10px;
+    width:76%;
+    height:40px;
+    border: none;
+    background-color: #f5f5f5;
+    border-radius:4px;
+    margin-right: 10px;
+    margin-top: 30px;
+    padding-left: 15px;
+}
+
+.forget{
+    display: flex;
+    font-size: 13px;
+    font-weight: 400px;
+    color: #aba0a7;
+    margin-top: 15px;
+}
+
+.forget>div{
+    margin-left: 33px;
+    margin-right: 40px;
+}
+
+.forget>a{
+    margin-top: 4px;
+    color: #5595ef;
+    text-decoration: none;
+}
+
+.loginbutton{
+    width: 80%;
+    height:40px;
+    font-weight: 600px ;
+    font-size: 15px;
+    border:none;
+    border-radius:4px;
+    cursor: pointer;
+}
+
+.btn{
+    background-color: #fed250;
+    margin-top:40px;
+}

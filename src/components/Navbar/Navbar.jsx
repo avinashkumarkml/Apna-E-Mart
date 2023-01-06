@@ -7,7 +7,9 @@ import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
+import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
+import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
@@ -17,33 +19,46 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import axios from "axios";
-import { Logout } from "../Logout/Logout";
-const pages = ["Cloths", "Electronics", "Shoes", "Books"];
+import { Logout } from "../logout/logout";
 
-export const ResponsiveAppBar = () => {
+const pages = ["Cloth", "Electronics", "Appliances", "Books"];
+const settings = ["Profile", "Account", "Dashboard", "Logout"];
+
+const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const navigate = useNavigate();
-  const isLogin = useSelector((store) => store.isLogin);
-  console.log("welcome Name : ", isLogin);
-  const [cartData, setCartData] = React.useState(0);
-  const { cart } = useSelector((store) => store.cart);
-  const getCartData = () => {
-    axios.get("https://web-production-99af.up.railway.app/cart").then((res) => {
-      setCartData(res.data.length);
-    });
-  };
-  React.useEffect(() => {
-    getCartData();
-  }, [cart]);
-
+  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const navigate =useNavigate()
+   const {cart} =useSelector((store)=>store.cart)
+  const [data,setData] =React.useState(0)
+  const  isLogin  = useSelector((store) => store.isLogin);
+  //  console.log(isLogin)
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
+  const handleOpenUserMenu = (event) => {
+    setAnchorElUser(event.currentTarget);
+  };
+  // console.log({cart})
+    
+  React.useEffect(()=>{
+   showData()
+      //console.log(showData())
+  },[cart])
+  const showData=()=>{
+      axios.get("https://e-mart-7352.herokuapp.com/cart").then((res)=>{
+          // console.log(res.data.length)
+               setData(res.data.length)
+          })
+  }
+  const handleCloseNavMenu = (e) => {
+    // setAnchorElNav(null);
+    navigate(`/${e}`)
+    // console.log(e)
   };
 
+  const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
+  };
   const StyledBadge = styled(Badge)(({ theme }) => ({
     "& .MuiBadge-badge": {
       right: -3,
@@ -52,10 +67,14 @@ export const ResponsiveAppBar = () => {
       padding: "0 4px",
     },
   }));
+  const anotherPage=(e)=>{
+    navigate("/e")
+  }
   return (
     <AppBar position="fixed">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
+          {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
           <ShoppingBagIcon />
           <Typography
             variant="h6"
@@ -73,7 +92,7 @@ export const ResponsiveAppBar = () => {
               textDecoration: "none",
             }}
           >
-            Apna E mart
+            E-mart
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -106,8 +125,9 @@ export const ResponsiveAppBar = () => {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                <MenuItem key={page} >
+                  
+                  <Typography  textAlign="center">{page}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -135,20 +155,16 @@ export const ResponsiveAppBar = () => {
             {pages.map((page) => (
               <Button
                 key={page}
-                onClick={() => navigate(`/${page}`)}
+                onClick={()=>navigate(`/${page}`)}
                 sx={{ my: 2, color: "white", display: "block" }}
               >
                 {page}
               </Button>
             ))}
           </Box>
-          <IconButton
-            onClick={() => navigate("/cart")}
-            aria-label="cart"
-            style={{ marginRight: "35px", color: "white" }}
-          >
-            <StyledBadge badgeContent={cartData} color="secondary">
-              <ShoppingCartIcon />
+          <IconButton  aria-label="cart" style={{marginRight:"35px",color:"white"}}>
+            <StyledBadge badgeContent={data} color="secondary">
+              <ShoppingCartIcon onClick={()=>navigate("/cart")}/>
             </StyledBadge>
           </IconButton>
           <p
@@ -157,7 +173,7 @@ export const ResponsiveAppBar = () => {
             |
           </p>
           {isLogin.data ? (
-            <Logout name={isLogin.data.user.name} />
+            <Logout name={isLogin.data.user.name}/>
           ) : (
             <>
               <Link
@@ -186,8 +202,38 @@ export const ResponsiveAppBar = () => {
               </Link>
             </>
           )}
-            </Toolbar>
+          {/* <Box sx={{ flexGrow: 0 }}>
+            <Tooltip title="Open settings">
+              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                <Avatar alt="Remy Sharp" src="" />
+              </IconButton>
+            </Tooltip>
+            <Menu
+              sx={{ mt: "45px" }}
+              id="menu-appbar"
+              anchorEl={anchorElUser}
+              anchorOrigin={{
+                vertical: "top",
+                horizontal: "right",
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: "top",
+                horizontal: "right",
+              }}
+              open={Boolean(anchorElUser)}
+              onClose={handleCloseUserMenu}
+            >
+              {settings.map((setting) => (
+                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                  <Typography textAlign="center">{setting}</Typography>
+                </MenuItem>
+              ))}
+            </Menu>
+          </Box> */}
+        </Toolbar>
       </Container>
     </AppBar>
   );
 };
+export default ResponsiveAppBar;

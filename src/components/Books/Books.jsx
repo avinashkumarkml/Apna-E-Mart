@@ -1,89 +1,87 @@
-import axios from "axios";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
-import { filterBooks, getBooks } from "../../Redux/Action";
-import "./Books.css";
-export const Books = () => {
-  const dispatch = useDispatch();
-  const { books } = useSelector((store) => store.books);
-  const filterBook = useSelector((store) => store.books.filterBooks);
-  const navigate = useNavigate();
-  const renderCloths = () => {
-    axios.get("https://web-production-99af.up.railway.app/books").then((res) => {
-      dispatch(getBooks(res.data));
-    });
-  };
-  useEffect(() => {
-    renderCloths();
-  }, []);
 
-  const handleSort = (e) => {
-    const { id, value } = e.target;
-    if (id == "sortingData" && value == "low") {
-      books.sort((a, b) => a.price - b.price);
-      dispatch(getBooks(books));
-    }
-    if (id == "sortingData" && value == "high") {
-      books.sort((a, b) => b.price - a.price);
-      dispatch(getBooks(books));
-    }
-    if (id == "filterData") {
-      dispatch(filterBooks(value));
-    }
-  };
+import axios from "axios"
+import { useEffect } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { useNavigate } from "react-router-dom"
+import { cartData, getApData, getBookData, getBookFilData } from "../../redux/action"
+import "./books.css"
 
-  return (
-    <>
-      <div className="sortFilterDiv">
-        <div className="sortingDiv">
-          <select
-            name=""
-            id="filterData"
-            className="sorting"
-            onChange={handleSort}
-          >
-            <option value="">Filter by Language</option>
-            <option value="ENGLISH">ENGLISH</option>
-            <option value="HINDI">HINDI</option>
-          </select>
+export const Books =()=>{
+    const {books} =useSelector((store)=>store.books)
+    const filbooks =useSelector((store)=>store.books.filbooks)
+    const navigate =useNavigate()
+    const dispatch =useDispatch()
+    useEffect(()=>{
+       axios.get(" https://e-mart-7352.herokuapp.com/books").then((res)=>{
+          // console.log(res.data)
+           dispatch(getBookData(res.data))
+       })
+
+    },[])
+
+    const handleSort=(e)=>{
+        let {id,value} =e.target
+            if(id =="priceSort" && value =="low"){
+                books.sort((a,b)=>a.price -b.price)
+                dispatch(getBookData(books))
+            }
+            if(id =="priceSort" && value =="high"){
+                books.sort((a,b)=>b.price -a.price)
+                dispatch(getBookData(books))
+            }
+            if(id =="filterCategory"){
+               //  console.log(value,"a")
+                  dispatch(getBookFilData(value))
+              }
+    }
+    const bookData=(e)=>{
+        navigate(`/Books/product_details/${e._id}`)
+        // dispatch(cartData())
+        
+    }
+    const handlecart =(e)=>{
+        //  console.log(e)
+          axios.post(" https://e-mart-7352.herokuapp.com/cart",e).then(()=>{
+              alert("added to cart")
+             // dispatch(addCart(prod))
+          })
+         // console.log({cart})
+          dispatch(cartData())
+      } 
+    return(
+        <>
+        <div>
+            <select name="" id="priceSort" onChange={handleSort}>
+                <option value="">-- sort by price --</option>
+                <option value="low">low to high</option>
+                <option value="high">high to low</option>
+            </select>
+            <select name="" id="filterCategory" onChange={handleSort}>
+                <option value="">-- filter by category --</option>
+                <option value="mystery">filter by mystery</option>
+                <option value="mythology">filter by mythology</option>
+                <option value="history">filter by history</option>
+                <option value="technology">filter by technology</option>
+                
+            </select>
         </div>
-        <div className="sortingDiv">
-          <select
-            name=""
-            id="sortingData"
-            className="sorting"
-            onChange={handleSort}
-          >
-            <option value="">Sort by Price</option>
-            <option value="low">Low to High</option>
-            <option value="high">High to Low</option>
-          </select>
-        </div>
-      </div>
-      <div className="booksContainer">
-        {books &&
-          filterBook.map((el) => (
-            <Link
-              key={el._id}
-              to={el._id}
-              onClick={() => navigate(`/books/${el.id}`)}
-              className="cart"
-            >
-              <div className="imgDiv">
-                <img src={el.image} alt="" />
-              </div>
-              <div className="aboutProd">
-                <div className="size">
-                  <h4>{el.name}</h4>
-                  <h4>{el.category}</h4>
+        <div className="book_container">
+            {books && filbooks.map((e)=>(
+            <div>
+                <div key={e._id} onClick={()=>bookData(e)}>
+                    <img style={{width:"74%",marginLeft:"4%"}} src={e.image} />
+                    <h3>{e.name}</h3>
+                    <h4>₹ {e.price}.00</h4>
                 </div>
-                <h4>{el.description}</h4>
-                <h4>₹ {el.price}</h4>
-              </div>
-            </Link>
-          ))}
-      </div>
-    </>
-  );
-};
+                <div >
+
+                <button onClick={ ()=>handlecart(e)} >Add to cart</button>
+                </div>
+            </div>
+            ))}
+        </div>
+        </>
+    )
+      
+    
+}

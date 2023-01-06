@@ -5,7 +5,7 @@ import {
     LOGIN_REQUEST,
     LOGIN_SUCCESS,
     LOGOUT_SUCCESS,
-  } from "./Action";
+  } from "./action";
   
   const initialState = {
     isLoading: false,

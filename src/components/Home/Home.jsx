@@ -1,109 +1,166 @@
 import axios from "axios";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
-import {
-  getBooks,
-  getCloths,
-  getElectronics,
-  getShoes,
-} from "../../Redux/Action";
-import "./Home.css";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { cartData } from "../../redux/action";
+import { Caro } from "./caraosel/caraosel";
+import "./home.css";
 
-import MultipleItems from "../Carousel/Carousel";
-
-export const HomePage = () => {
-  const dispatch = useDispatch();
-  const { cloths } = useSelector((store) => store.cloths);
-  const { shoes } = useSelector((store) => store.shoes);
-  const { electronics } = useSelector((store) => store.electronics);
-  const { books } = useSelector((store) => store.books);
-
+export const Home = () => {
   const navigate = useNavigate();
-  const renderCloths = () => {
-    axios.get("https://web-production-99af.up.railway.app/Cloth").then((res) => {
-      dispatch(getCloths(res.data.slice(0, 5)));
-    });
-  };
-  const renderShoes = () => {
-    axios.get("https://web-production-99af.up.railway.app/Appliances").then((res) => {
-      dispatch(getShoes(res.data.slice(0, 5)));
-    });
-  };
-  const renderElectronics = () => {
-    axios.get("https://web-production-99af.up.railway.app/electronics").then((res) => {
-      dispatch(getElectronics(res.data.slice(0, 5)));
-    });
-  };
-  const renderBooks = () => {
-    axios.get("https://web-production-99af.up.railway.app/books").then((res) => {
-      dispatch(getBooks(res.data.slice(0, 5)));
-    });
-  };
+  const [cloth, setCloth] = useState([]);
+  const [electronic, setElectronic] = useState([]);
+  const [appliance,setAppliance] =useState([])
+  const [book,setBook] =useState([])
+  const dispatch = useDispatch();
   useEffect(() => {
-    renderCloths();
-    renderShoes();
-    renderElectronics();
-    renderBooks();
+    axios.get(" https://e-mart-7352.herokuapp.com/cloth").then((res) => {
+      //  console.log(res.data)
+      let x = res.data.slice(0, 3);
+      // console.log(x)
+      setCloth(x);
+    });
   }, []);
+  useEffect(() => {
+    axios.get(" https://e-mart-7352.herokuapp.com/electronics").then((res) => {
+      //  console.log(res.data)
+      let x = res.data.slice(0, 3);
+      // console.log(x)
+      setElectronic(x);
+    });
+  }, []);
+  useEffect(() => {
+    axios.get(" https://e-mart-7352.herokuapp.com/appliances").then((res) => {
+      //  console.log(res.data)
+      let x = res.data.slice(0, 3);
+      // console.log(x)
+      setAppliance(x);
+    });
+  }, []);
+  useEffect(() => {
+    axios.get(" https://e-mart-7352.herokuapp.com/books").then((res) => {
+      //  console.log(res.data)
+      let x = res.data.slice(0, 3);
+      // console.log(x)
+      setBook(x);
+    });
+  }, []);
+  const handlecart = (e) => {
+    //  console.log(e)
+    axios
+      .post(" https://e-mart-7352.herokuapp.com/cart", e)
+      .then(() => {
+        //   alert("added to cart")
+
+        dispatch(cartData());
+      })
+      .catch((e) => {
+        console.log(e.message);
+        alert("Cart already have same item");
+      });
+    // console.log({cart})
+  };
   return (
-    <>
-      <div className="HomeContainer">
-        <div className="carouselHomeDiv">
-          <MultipleItems />
+    <div>
+      <Caro />
+
+      <div className="prod_div">
+        <div className="view_div">
+          <h2>Clothing Products</h2>
+          <button onClick={() => navigate("/Cloth")}>View all</button>
         </div>
-        <h2 className="catgName">Cloths Products</h2>
-        <div className="prodsBlock">
-          {cloths.map((el) => (
-            <Link to={`/cloths/${el._id}`} className="image" key={el._id}>
-              {" "}
-              <img className="image" src={el.image} alt="" />
-            </Link>
+
+        <div className="products">
+          {cloth.map((e) => (
+            <div>
+              <div
+                key={e._id}
+                onClick={() => navigate(`/Cloth/product_details/${e._id}`)}
+              >
+                <img src={e.image} />
+                <h3>{e.name}</h3>
+                <h4>₹ {e.price}.00</h4>
+              </div>
+              <div>
+                <button onClick={() => handlecart(e)}>Add to cart</button>
+              </div>
+            </div>
           ))}
-          <button className="viewAllBtn" onClick={() => navigate("/cloths")}>
-            VIEW ALL
-          </button>
-        </div>
-        <h2 className="catgName">Shoes Products</h2>
-        <div className="prodsBlock">
-          {shoes.map((el) => (
-            <Link to={`/shoes/${el._id}`} className="image" key={el._id}>
-              {" "}
-              <img className="image" src={el.image} alt="" />
-            </Link>
-          ))}
-          <button className="viewAllBtn" onClick={() => navigate("/shoes")}>
-            VIEW ALL
-          </button>
-        </div>
-        <h2 className="catgName">Electronics Products</h2>
-        <div className="prodsBlock">
-          {electronics.map((el) => (
-            <Link to={`/electronics/${el._id}`} className="image" key={el._id}>
-              {" "}
-              <img className="image" src={el.image} alt="" />
-            </Link>
-          ))}
-          <button
-            className="viewAllBtn"
-            onClick={() => navigate("/electronics")}
-          >
-            VIEW ALL
-          </button>
-        </div>
-        <h2 className="catgName">Books Products</h2>
-        <div className="prodsBlock">
-          {books.map((el) => (
-            <Link to={`/books/${el._id}`} className="image" key={el._id}>
-              {" "}
-              <img className="image" src={el.image} alt="" />
-            </Link>
-          ))}
-          <button className="viewAllBtn" onClick={() => navigate("/books")}>
-            VIEW ALL
-          </button>
         </div>
       </div>
-    </>
+
+      <div style={{height:"520px"}} className="prod_div">
+      <div className="view_div">
+          <h2>Electronics Products</h2>
+          <button onClick={() => navigate("/Electronics")}>View all</button>
+        </div>
+
+        <div  className="products">
+          {electronic.map((e) => (
+            <div>
+              <div
+                key={e._id}
+                onClick={() => navigate(`/Electronics/product_details/${e._id}`)}
+              >
+                <img style={{width:"44%",marginLeft:"24%"}} src={e.image} />
+                <h3>{e.name}</h3>
+                <h4>₹ {e.price}.00</h4>
+              </div>
+              <div>
+                <button onClick={() => handlecart(e)}>Add to cart</button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div style={{height:"540px"}} className="prod_div">
+      <div className="view_div">
+          <h2>Appliances </h2>
+          <button onClick={() => navigate("/Appliances")}>View all</button>
+        </div>
+
+        <div className="products">
+          {appliance.map((e) => (
+            <div>
+              <div
+                key={e._id}
+                onClick={() => navigate(`/Appliances/product_details/${e._id}`)}
+              >
+                <img style={{width:"84%",marginLeft:"4%"}} src={e.image} />
+                <h3>{e.name}</h3>
+                <h4>₹ {e.price}.00</h4>
+              </div>
+              <div>
+                <button onClick={() => handlecart(e)}>Add to cart</button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="prod_div">
+      <div className="view_div">
+          <h2>Books </h2>
+          <button onClick={() => navigate("/Books")}>View all</button>
+        </div>
+
+        <div className="products">
+          {book.map((e) => (
+            <div>
+              <div
+                key={e._id}
+                onClick={() => navigate(`/Books/product_details/${e._id}`)}
+              >
+                <img style={{width:"84%",marginLeft:"4%"}} src={e.image} />
+                <h3>{e.name}</h3>
+                <h4>₹ {e.price}.00</h4>
+              </div>
+              <div>
+                <button onClick={() => handlecart(e)}>Add to cart</button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
   );
 };

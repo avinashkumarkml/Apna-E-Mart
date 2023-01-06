@@ -1,36 +1,39 @@
 
 
+
+
+
 import axios from "axios"
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
-import { cartData, getData, getElData, getElFilData } from "../../redux/action"
-import "./electronics.css"
+import { cartData, getApData, getApFilData, getData, getElData } from "../../redux/action"
+import "./appliances.css"
 
-export const Electronics =()=>{
-    const {electronics} =useSelector((store)=>store.electronics)
-    const filelectronics =useSelector((store)=>store.electronics.filelectronics)
+export const Appliances =()=>{
+    const {appliances} =useSelector((store)=>store.appliances)
+    const filappliances =useSelector((store)=>store.appliances.filappliances)
     const dispatch =useDispatch()
     const navigate =useNavigate()
     useEffect(()=>{
-       axios.get("https://e-mart-7352.herokuapp.com/electronics").then((res)=>{
+       axios.get("https://e-mart-7352.herokuapp.com/appliances").then((res)=>{
           // console.log(res.data)
-           dispatch(getElData(res.data))
+           dispatch(getApData(res.data))
        })
     },[])
     const handleSort=(e)=>{
         let {id,value} =e.target
             if(id =="priceSort" && value =="low"){
-                electronics.sort((a,b)=>a.price.split(",").join("") -b.price.split(",").join(""))
-                dispatch(getElData(electronics))
+                appliances.sort((a,b)=>a.price.split(",").join("") -b.price.split(",").join(""))
+                dispatch(getApData(appliances))
             }
             if(id =="priceSort" && value =="high"){
-                electronics.sort((a,b)=>b.price.split(",").join("")  -a.price.split(",").join("") )
-                dispatch(getElData(electronics))
+                appliances.sort((a,b)=>b.price.split(",").join("")  -a.price.split(",").join("") )
+                dispatch(getApData(appliances))
             }
             if(id =="filterCategory"){
-                //  console.log(value,"a")
-                  dispatch(getElFilData(value))
+              //  console.log(value,"a")
+                  dispatch(getApFilData(value))
               }
     }
     const handlecart =(e)=>{
@@ -52,22 +55,24 @@ export const Electronics =()=>{
             </select>
             <select name="" id="filterCategory" onChange={handleSort}>
                 <option value="">-- filter by category --</option>
-                <option value="mobile">filter by mobile</option>
-                <option value="laptop">filter by laptop</option>
+                <option value="Television">filter by Television</option>
+                <option value="refrigerator">filter by refrigerator</option>
+                <option value="washing machine">filter by washing machine</option>
+             
             </select>
         </div>
-        <div className="el_container">
-            {electronics&& filelectronics.map((e)=>(
+        <div className="apl_container">
+            {appliances &&filappliances.map((e)=>(
                 <div>
-                <div key={e._id} onClick={()=>navigate(`/Electronics/product_details/${e._id}`)}>
+                <div key={e._id} onClick={()=>navigate(`/Appliances/product_details/${e._id}`)}>
                     <img src={e.image} />
                     <h3>{e.name}</h3>
                     <h4>₹ {e.price}.00</h4>
                 </div>
-                        <div >
+                <div >
 
-                        <button onClick={ ()=>handlecart(e)} >Add to cart</button>
-                        </div>
+                    <button onClick={ ()=>handlecart(e)} >Add to cart</button>
+                    </div>
                 </div>
             ))}
         </div>
