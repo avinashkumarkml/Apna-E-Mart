@@ -39,7 +39,7 @@ export const Login = () => {
     // login flow complete, connect redux, isAuth and token store remaining
 
     axios
-      .post("https://e-mart-7352.herokuapp.com/login", userDetails)
+      .post("https://glamorous-calf-culottes.cyclic.app/login", userDetails)
       .then((res) => {
         console.log(res.data);
         alert("Login Successful");

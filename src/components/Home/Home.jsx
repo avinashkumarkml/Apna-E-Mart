@@ -14,7 +14,7 @@ export const Home = () => {
   const [book,setBook] =useState([])
   const dispatch = useDispatch();
   useEffect(() => {
-    axios.get(" https://e-mart-7352.herokuapp.com/cloth").then((res) => {
+    axios.get(" https://glamorous-calf-culottes.cyclic.app/cloth").then((res) => {
       //  console.log(res.data)
       let x = res.data.slice(0, 3);
       // console.log(x)
@@ -22,7 +22,7 @@ export const Home = () => {
     });
   }, []);
   useEffect(() => {
-    axios.get(" https://e-mart-7352.herokuapp.com/electronics").then((res) => {
+    axios.get(" https://glamorous-calf-culottes.cyclic.app/electronics").then((res) => {
       //  console.log(res.data)
       let x = res.data.slice(0, 3);
       // console.log(x)
@@ -30,7 +30,7 @@ export const Home = () => {
     });
   }, []);
   useEffect(() => {
-    axios.get(" https://e-mart-7352.herokuapp.com/appliances").then((res) => {
+    axios.get(" https://glamorous-calf-culottes.cyclic.app/appliances").then((res) => {
       //  console.log(res.data)
       let x = res.data.slice(0, 3);
       // console.log(x)
@@ -38,7 +38,7 @@ export const Home = () => {
     });
   }, []);
   useEffect(() => {
-    axios.get(" https://e-mart-7352.herokuapp.com/books").then((res) => {
+    axios.get(" https://glamorous-calf-culottes.cyclic.app/books").then((res) => {
       //  console.log(res.data)
       let x = res.data.slice(0, 3);
       // console.log(x)
@@ -48,7 +48,7 @@ export const Home = () => {
   const handlecart = (e) => {
     //  console.log(e)
     axios
-      .post(" https://e-mart-7352.herokuapp.com/cart", e)
+      .post(" https://glamorous-calf-culottes.cyclic.app/cart", e)
       .then(() => {
         //   alert("added to cart")
 

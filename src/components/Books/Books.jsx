@@ -12,7 +12,7 @@ export const Books =()=>{
     const navigate =useNavigate()
     const dispatch =useDispatch()
     useEffect(()=>{
-       axios.get(" https://e-mart-7352.herokuapp.com/books").then((res)=>{
+       axios.get(" https://glamorous-calf-culottes.cyclic.app/books").then((res)=>{
           // console.log(res.data)
            dispatch(getBookData(res.data))
        })
@@ -41,7 +41,7 @@ export const Books =()=>{
     }
     const handlecart =(e)=>{
         //  console.log(e)
-          axios.post(" https://e-mart-7352.herokuapp.com/cart",e).then(()=>{
+          axios.post(" https://glamorous-calf-culottes.cyclic.app/cart",e).then(()=>{
               alert("added to cart")
              // dispatch(addCart(prod))
           })

@@ -45,7 +45,7 @@ const ResponsiveAppBar = () => {
       //console.log(showData())
   },[cart])
   const showData=()=>{
-      axios.get("https://e-mart-7352.herokuapp.com/cart").then((res)=>{
+      axios.get("https://glamorous-calf-culottes.cyclic.app/cart").then((res)=>{
           // console.log(res.data.length)
                setData(res.data.length)
           })

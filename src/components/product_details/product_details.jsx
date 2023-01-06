@@ -23,7 +23,7 @@ export const Details =()=>{
    // dispatch(cartData())
    let data
    
-   axios.get(` https://e-mart-7352.herokuapp.com/${info.category}`).then((res)=>{
+   axios.get(` https://glamorous-calf-culottes.cyclic.app/${info.category}`).then((res)=>{
           data=res.data
         //   console.log(res.data ,"two")
         //   setProd(res.data)
@@ -59,7 +59,7 @@ export const Details =()=>{
   },[])
 
   const handlecart =()=>{
-      axios.post(" https://e-mart-7352.herokuapp.com/cart",prod).then(()=>{
+      axios.post(" https://glamorous-calf-culottes.cyclic.app/cart",prod).then(()=>{
           alert("added to cart")
          // dispatch(addCart(prod))
       })

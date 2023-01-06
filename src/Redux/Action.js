@@ -30,11 +30,11 @@ export const getBookFilData =(data)=>({type:GET_BOOK_FIL_DATA,payload:data})
 
 export const cartData=()=>(dispatch)=>{
    // console.log("abc")
-    axios.get("https://e-mart-7352.herokuapp.com/cart").then((res)=>{
+    axios.get("https://glamorous-calf-culottes.cyclic.app/cart").then((res)=>{
         // console.log(res.data,"sdjh")
         dispatch(addCart(res.data))
     })
-    axios.get("https://e-mart-7352.herokuapp.com/books").then((res)=>{
+    axios.get("https://glamorous-calf-culottes.cyclic.app/books").then((res)=>{
         // console.log(res.data,"sdjh")
         dispatch(getBookData(res.data))
     })
